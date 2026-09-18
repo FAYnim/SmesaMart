@@ -6,3 +6,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+Route::get('/produk', function () {
+    return view('produk');
+});
