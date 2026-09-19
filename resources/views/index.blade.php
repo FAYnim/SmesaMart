@@ -179,19 +179,114 @@
             </button>
         </nav>
 
-        <!-- FEATURED CATEGORY SHOWCASE CARD -->
-        <div class="bg-white rounded-3xl border border-gray-100 shadow-xs p-8 mb-8 flex flex-col items-center justify-center transition hover:shadow-sm">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-brand-800 mb-2">
-                <!-- Coffee / Drink Cup with Steam Icon -->
-                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg>
+        <!-- HERO PROMO BANNER SECTION -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
+            <!-- Left Banner (Main Carousel / Promo Card) - Takes 2 Columns on LG -->
+            <div class="lg:col-span-2 relative bg-gradient-to-r from-[#18643b] via-[#1d7445] to-[#155a34] rounded-2xl overflow-hidden shadow-sm flex flex-col md:flex-row justify-between min-h-[260px] p-6 sm:p-8 text-white">
+                <!-- Background subtle decorative circles/pattern -->
+                <div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
+                <div class="absolute left-1/3 -top-10 w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+
+                <!-- Text Content -->
+                <div class="relative z-10 flex flex-col justify-between max-w-md">
+                    <div>
+                        <span class="inline-block bg-white/20 backdrop-blur-xs text-white text-[11px] font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                            PROMO SPESIAL
+                        </span>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight text-white mb-2">
+                            SmesaMart Promo: Diskon Sembako s.d. 50%!
+                        </h1>
+                        <p class="text-xs sm:text-sm text-emerald-100/90 font-normal leading-relaxed mb-6">
+                            Dapatkan Beras, Minyak Goreng, dan Gula Termurah di SmesaMart!
+                        </p>
+                    </div>
+
+                    <div>
+                        <a href="#promo" class="inline-flex items-center justify-center bg-white text-brand-800 hover:bg-emerald-50 text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-xs transition duration-200">
+                            Cek Promo Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Showcase / Image Content -->
+                <div class="relative z-10 mt-6 md:mt-0 flex items-center justify-center shrink-0 md:w-5/12">
+                    <div class="relative w-full max-w-[280px] rounded-xl overflow-hidden shadow-md bg-emerald-900/40 p-2 border border-white/10">
+                        <img 
+                            src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=80" 
+                            alt="Promo Sembako SmesaMart" 
+                            class="w-full h-44 sm:h-48 object-cover rounded-lg"
+                        />
+                    </div>
+                </div>
             </div>
-            <span class="text-xs font-bold text-gray-800 tracking-wide">Minuman</span>
+
+            <!-- Right Column - 2 Stacked Promo Banners -->
+            <div class="flex flex-col gap-4">
+                <!-- Top Card: Gratis Ongkir -->
+                <div class="relative flex-1 bg-gradient-to-r from-[#1e6b3f] to-[#185834] rounded-2xl p-5 text-white flex items-center justify-between overflow-hidden shadow-sm group">
+                    <div class="relative z-10 flex flex-col justify-between h-full max-w-[58%]">
+                        <div>
+                            <!-- Delivery Icon Badge -->
+                            <div class="w-7 h-7 rounded-lg bg-white/15 flex items-center justify-center mb-2.5">
+                                <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="3" width="15" height="13"></rect>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold leading-snug">Gratis Ongkir</h3>
+                            <p class="text-[11px] text-emerald-100/80 mt-0.5 line-clamp-1">Untuk semua produk segar</p>
+                        </div>
+                        <div class="mt-3">
+                            <a href="#gratis-ongkir" class="inline-block bg-white/20 hover:bg-white/30 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full transition">
+                                Belanja Sekarang
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right Illustration / Graphic for Delivery Truck -->
+                    <div class="relative z-10 w-28 h-24 flex items-center justify-center shrink-0">
+                        <div class="w-full h-full bg-emerald-500/20 rounded-xl flex items-center justify-center p-2 border border-emerald-400/20 group-hover:scale-105 transition duration-300">
+                            <svg class="w-16 h-16 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="3" width="15" height="13" rx="1"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                <line x1="1" y1="9" x2="16" y2="9"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Card: Flash Sale Produk Daging -->
+                <div class="relative flex-1 bg-gradient-to-r from-[#1e6b3f] to-[#185834] rounded-2xl p-5 text-white flex items-center justify-between overflow-hidden shadow-sm group">
+                    <div class="relative z-10 flex flex-col justify-between h-full max-w-[58%]">
+                        <div>
+                            <!-- Flash / Lightning Badge -->
+                            <div class="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center mb-2.5 font-bold">
+                                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-bold leading-snug">Flash Sale: Produk Daging</h3>
+                            <p class="text-[11px] text-emerald-100/80 mt-0.5 line-clamp-1">Diskon hingga 45% hari ini!</p>
+                        </div>
+                        <div class="mt-3">
+                            <a href="#flashsale" class="inline-block bg-white/20 hover:bg-white/30 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full transition">
+                                Lihat Flash Sale
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right Image for Meat / Products -->
+                    <div class="relative z-10 w-28 h-24 shrink-0 rounded-xl overflow-hidden shadow-inner border border-white/10 group-hover:scale-105 transition duration-300">
+                        <img 
+                            src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&auto=format&fit=crop&q=80" 
+                            alt="Flash Sale Produk Daging" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- FLASH SALE SECTION HEADER -->
