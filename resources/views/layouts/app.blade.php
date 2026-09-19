@@ -247,33 +247,33 @@
         /* Search Bar */
         .search-container {
             position: relative;
-            width: 320px;
+            width: 280px;
             max-width: 100%;
         }
 
         .search-container i {
             position: absolute;
-            left: 1.15rem;
+            left: 1.1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-light-muted);
+            color: #94a3b8;
             font-size: 0.95rem;
         }
 
         .search-input {
             width: 100%;
-            padding: 0.55rem 1rem 0.55rem 2.75rem;
+            padding: 0.5rem 1rem 0.5rem 2.6rem;
             background-color: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 50rem;
-            font-size: 0.875rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
             color: #0f172a;
             outline: none;
             transition: all 0.2s ease;
         }
 
         .search-input::placeholder {
-            color: var(--text-light-muted);
+            color: #94a3b8;
         }
 
         .search-input:focus {
@@ -286,41 +286,49 @@
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .notification-btn {
             position: relative;
-            background: none;
-            border: none;
-            color: #0f172a;
-            font-size: 1.25rem;
-            padding: 0.25rem;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 1.15rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .notification-btn:hover {
+            background-color: #f1f5f9;
+            color: #0f172a;
         }
 
         .notification-dot {
             position: absolute;
-            top: 4px;
-            right: 4px;
+            top: 8px;
+            right: 9px;
             width: 7px;
             height: 7px;
-            background-color: #ef4444;
+            background-color: #f59e0b;
             border-radius: 50%;
         }
 
         .top-user-profile {
             display: flex;
             align-items: center;
-            gap: 0.85rem;
+            gap: 0.75rem;
         }
 
         .top-user-meta {
-            text-align: right;
-            line-height: 1.25;
+            text-align: left;
+            line-height: 1.2;
         }
 
         .top-user-name {
@@ -337,8 +345,8 @@
         }
 
         .top-user-img {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             object-fit: cover;
         }
@@ -410,7 +418,7 @@
                 
                 <!-- Category: UTAMA -->
                 <p class="nav-category">UTAMA</p>
-                <a href="{{ url('/dashboard') }}" class="nav-link-custom {{ (request()->is('dashboard*') || request()->is('/')) && !request()->is('produk*') ? 'active' : '' }}">
+                <a href="{{ url('/dashboard') }}" class="nav-link-custom {{ (request()->is('dashboard*') || request()->is('/')) && !request()->is('produk*') && !request()->is('stok*') ? 'active' : '' }}">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
@@ -421,7 +429,7 @@
                     <i class="bi bi-box-seam"></i>
                     <span>Produk</span>
                 </a>
-                <a href="#stok" class="nav-link-custom">
+                <a href="{{ url('/stok') }}" class="nav-link-custom {{ request()->is('stok*') ? 'active' : '' }}">
                     <i class="bi bi-database"></i>
                     <span>Stok</span>
                 </a>
@@ -449,7 +457,7 @@
             <!-- Bottom Profile / Logout -->
             <div class="sidebar-footer">
                 <div class="user-profile-widget">
-                    <img src="https://placehold.co/100x100?text=Admin" alt="Admin Smesa" class="user-profile-img">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80" alt="Admin Smesa" class="user-profile-img">
                     <div>
                         <p class="user-profile-name">Admin Smesa</p>
                         <p class="user-profile-role">admin123</p>
@@ -478,7 +486,7 @@
                 <!-- Center Search Box -->
                 <div class="search-container d-none d-md-block">
                     <i class="bi bi-search"></i>
-                    <input type="text" class="search-input" placeholder="Cari sesuatu..." aria-label="Cari sesuatu">
+                    <input type="text" class="search-input" placeholder="Cari produk..." aria-label="Cari produk">
                 </div>
 
                 <!-- Right Actions: Notifications & Profile -->
@@ -491,11 +499,11 @@
 
                     <!-- Admin Profile Badge -->
                     <div class="top-user-profile">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Foto Profil Admin" class="top-user-img">
                         <div class="top-user-meta d-none d-sm-block">
-                            <p class="top-user-name">Admin</p>
+                            <p class="top-user-name">Admin Smesa</p>
                             <p class="top-user-sub">admin123</p>
                         </div>
-                        <img src="https://placehold.co/100x100/00593b/ffffff?text=A" alt="Foto Profil Admin" class="top-user-img">
                     </div>
                 </div>
             </header>
