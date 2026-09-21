@@ -2,6 +2,7 @@
 
 @section('title', 'SmesaMart - Stok Produk')
 @section('header_title', 'Stok Produk')
+@section('active_nav', 'stok')
 
 @push('styles')
 <style>

@@ -127,21 +127,21 @@
             display: flex;
             align-items: center;
             gap: 0.85rem;
-            padding: 0.65rem 0.85rem;
-            color: var(--text-muted);
+            padding: 0.72rem 1rem;
+            color: #334155;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.925rem;
             font-weight: 500;
-            border-radius: 10px;
-            margin-bottom: 0.2rem;
+            border-radius: 12px;
+            margin-bottom: 0.25rem;
             transition: all 0.2s ease;
         }
 
         .nav-link-custom i {
-            font-size: 1.1rem;
-            width: 20px;
+            font-size: 1.15rem;
+            width: 22px;
             text-align: center;
-            color: var(--text-muted);
+            color: #64748b;
             transition: color 0.2s ease;
         }
 
@@ -156,13 +156,13 @@
 
         /* Active navigation item */
         .nav-link-custom.active {
-            background-color: var(--brand-green-light);
-            color: var(--brand-green);
-            font-weight: 600;
+            background-color: #e6f4ea;
+            color: #00593b;
+            font-weight: 700;
         }
 
         .nav-link-custom.active i {
-            color: var(--brand-green);
+            color: #00593b;
         }
 
         /* Bottom Profile in Sidebar */
@@ -416,27 +416,30 @@
             <!-- Navigation Links -->
             <div class="sidebar-menu">
                 
+                @php
+                    $currentNav = trim($__env->yieldContent('active_nav'));
+                @endphp
                 <!-- Category: UTAMA -->
                 <p class="nav-category">UTAMA</p>
-                <a href="{{ url('/dashboard') }}" class="nav-link-custom {{ (request()->is('dashboard*') || request()->is('/')) && !request()->is('produk*') && !request()->is('stok*') ? 'active' : '' }}">
+                <a href="{{ url('/dashboard') }}" class="nav-link-custom {{ ($currentNav === 'dashboard') || (!$currentNav && (request()->is('dashboard*') || request()->is('/')) && !request()->is('produk*') && !request()->is('stok*')) ? 'active' : '' }}">
                     <i class="bi bi-speedometer2"></i>
                     <span>Dashboard</span>
                 </a>
 
                 <!-- Category: TOKO -->
                 <p class="nav-category mt-3">TOKO</p>
-                <a href="{{ url('/produk') }}" class="nav-link-custom {{ request()->is('produk*') ? 'active' : '' }}">
+                <a href="{{ url('/produk') }}" class="nav-link-custom {{ ($currentNav === 'produk') || (!$currentNav && request()->is('produk*')) ? 'active' : '' }}">
                     <i class="bi bi-box-seam"></i>
                     <span>Produk</span>
                 </a>
-                <a href="{{ url('/stok') }}" class="nav-link-custom {{ request()->is('stok*') ? 'active' : '' }}">
+                <a href="{{ url('/stok') }}" class="nav-link-custom {{ ($currentNav === 'stok') || (!$currentNav && request()->is('stok*')) ? 'active' : '' }}">
                     <i class="bi bi-database"></i>
                     <span>Stok</span>
                 </a>
 
                 <!-- Category: TRANSAKSI -->
                 <p class="nav-category mt-3">TRANSAKSI</p>
-                <a href="#pesanan" class="nav-link-custom">
+                <a href="{{ url('/pesanan') }}" class="nav-link-custom {{ ($currentNav === 'pesanan') || (!$currentNav && request()->is('pesanan*')) ? 'active' : '' }}">
                     <i class="bi bi-bag"></i>
                     <span>Pesanan</span>
                 </a>
@@ -483,14 +486,14 @@
                     <h2 class="page-title">@yield('header_title', 'Dashboard')</h2>
                 </div>
 
-                <!-- Center Search Box -->
-                <div class="search-container d-none d-md-block">
-                    <i class="bi bi-search"></i>
-                    <input type="text" class="search-input" placeholder="Cari produk..." aria-label="Cari produk">
-                </div>
-
-                <!-- Right Actions: Notifications & Profile -->
+                <!-- Right Actions: Search, Notifications & Profile -->
                 <div class="header-actions">
+                    <!-- Search Box -->
+                    <div class="search-container d-none d-md-block">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="search-input" placeholder="@yield('search_placeholder', 'Cari sesuatu...')" aria-label="Search">
+                    </div>
+
                     <!-- Bell Notification -->
                     <button type="button" class="notification-btn" aria-label="Notifikasi">
                         <i class="bi bi-bell"></i>

@@ -13,3 +13,11 @@ Route::get('/dashboard', function () {
 Route::get('/produk', function () {
     return view('produk');
 });
+
+Route::get('/stok', function () {
+    return view('stok');
+});
+
+Route::get('/pesanan', function () {
+    return view('pesanan');
+});
