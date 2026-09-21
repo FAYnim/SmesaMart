@@ -832,8 +832,8 @@
 
                     <!-- Submit Button Masuk -->
                     <div class="pt-1">
-                        <button 
-                            type="button" 
+                        <a 
+                            href="/dashboard"
                             class="w-full py-3 bg-[#0d6e4d] hover:bg-[#0a573c] text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition transform active:scale-[0.99]"
                         >
                             <span>Masuk</span>
@@ -841,7 +841,7 @@
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Or Divider -->
@@ -965,8 +965,8 @@
 
                     <!-- Submit Button -->
                     <div class="pt-2">
-                        <button 
-                            type="button" 
+                        <a 
+                            href="/dashboard"
                             class="w-full py-3 bg-[#0d6e4d] hover:bg-[#0a573c] text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 transition transform active:scale-[0.99]"
                         >
                             <span>Buat Akun</span>
@@ -974,7 +974,7 @@
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Footer Link to Login -->
