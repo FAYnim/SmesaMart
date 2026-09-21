@@ -21,3 +21,11 @@ Route::get('/stok', function () {
 Route::get('/pesanan', function () {
     return view('pesanan');
 });
+
+Route::get('/pengembalian', function () {
+    return view('pengembalian');
+});
+
+Route::get('/pengaturan', function () {
+    return view('pengaturan');
+});

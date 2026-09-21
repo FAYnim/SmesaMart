@@ -351,6 +351,20 @@
             object-fit: cover;
         }
 
+        .user-avatar-initials {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: var(--brand-green);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
         /* Page Content Padding */
         .page-content {
             padding: 2rem;
@@ -443,14 +457,14 @@
                     <i class="bi bi-bag"></i>
                     <span>Pesanan</span>
                 </a>
-                <a href="#pengembalian" class="nav-link-custom">
+                <a href="{{ url('/pengembalian') }}" class="nav-link-custom {{ ($currentNav === 'pengembalian') || (!$currentNav && request()->is('pengembalian*')) ? 'active' : '' }}">
                     <i class="bi bi-arrow-left-right"></i>
                     <span>Pengembalian</span>
                 </a>
 
                 <!-- Category: LAINNYA -->
                 <p class="nav-category mt-3">LAINNYA</p>
-                <a href="#pengaturan" class="nav-link-custom">
+                <a href="{{ url('/pengaturan') }}" class="nav-link-custom {{ ($currentNav === 'pengaturan') || (!$currentNav && request()->is('pengaturan*')) ? 'active' : '' }}">
                     <i class="bi bi-gear"></i>
                     <span>Pengaturan</span>
                 </a>
@@ -483,16 +497,24 @@
                         <i class="bi bi-list fs-4"></i>
                     </button>
                     
-                    <h2 class="page-title">@yield('header_title', 'Dashboard')</h2>
+                    @if(View::hasSection('header_left_custom'))
+                        @yield('header_left_custom')
+                    @elseif(trim($__env->yieldContent('header_title')))
+                        <h2 class="page-title">@yield('header_title')</h2>
+                    @else
+                        <h2 class="page-title">Dashboard</h2>
+                    @endif
                 </div>
 
                 <!-- Right Actions: Search, Notifications & Profile -->
                 <div class="header-actions">
+                    @if(!View::hasSection('header_left_custom'))
                     <!-- Search Box -->
                     <div class="search-container d-none d-md-block">
                         <i class="bi bi-search"></i>
                         <input type="text" class="search-input" placeholder="@yield('search_placeholder', 'Cari sesuatu...')" aria-label="Search">
                     </div>
+                    @endif
 
                     <!-- Bell Notification -->
                     <button type="button" class="notification-btn" aria-label="Notifikasi">
@@ -502,11 +524,15 @@
 
                     <!-- Admin Profile Badge -->
                     <div class="top-user-profile">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Foto Profil Admin" class="top-user-img">
-                        <div class="top-user-meta d-none d-sm-block">
-                            <p class="top-user-name">Admin Smesa</p>
-                            <p class="top-user-sub">admin123</p>
-                        </div>
+                        @if(View::hasSection('header_user_badge'))
+                            @yield('header_user_badge')
+                        @else
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Foto Profil Admin" class="top-user-img">
+                            <div class="top-user-meta d-none d-sm-block">
+                                <p class="top-user-name">Admin Smesa</p>
+                                <p class="top-user-sub">admin123</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </header>
