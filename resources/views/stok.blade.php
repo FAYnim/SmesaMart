@@ -45,7 +45,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>
@@ -74,7 +74,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>
@@ -103,7 +103,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>
@@ -132,7 +132,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>
@@ -161,7 +161,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>
@@ -190,7 +190,7 @@
                         </td>
                         <td>
                             <div class="actions-cell pe-2">
-                                <a href="#" class="btn-edit-outline">
+                                <a href="{{ url('/stok/edit') }}" class="btn-edit-outline">
                                     <i class="bi bi-pencil-square"></i>
                                     <span>Edit</span>
                                 </a>

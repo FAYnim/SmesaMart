@@ -18,6 +18,10 @@ Route::get('/stok', function () {
     return view('stok');
 });
 
+Route::get('/stok/edit', function () {
+    return view('stok-edit');
+});
+
 Route::get('/pesanan', function () {
     return view('pesanan');
 });
