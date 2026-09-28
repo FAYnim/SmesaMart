@@ -49,8 +49,8 @@ public/css/
 | `GET /produk` | `resources/views/produk.blade.php` | `style.css`, `dashboard.css` | Katalog produk admin, pencarian produk, tabel data produk, dan modal tambah/edit produk. |
 | `GET /stok` | `resources/views/stok.blade.php` | `style.css`, `dashboard.css` | Monitoring kuantitas stok barang, status stok (Aman, Menipis, Habis), dan paginasi. |
 | `GET /stok/edit` | `resources/views/stok-edit.blade.php` | `style.css`, `dashboard.css` | Formulir penyesuaian/edit stok produk (dummy), pratinjau kalkulasi mutasi, dan riwayat log stok. |
-| `GET /pesanan` | `resources/views/pesanan.blade.php` | `style.css`, `dashboard.css` | Manajemen pesanan 2 kolom: daftar kartu pesanan di sisi kiri dan drawer detail pesanan di sisi kanan. |
-| `GET /pengembalian` | `resources/views/pengembalian.blade.php` | `style.css`, `dashboard.css` | Monitoring komplain & retur pelanggan, kartu statistik retur, serta daftar transaksi terkait. |
+| `GET /pesanan` | `resources/views/pesanan.blade.php` | `style.css`, `dashboard.css` | Manajemen pesanan responsif: daftar kartu pesanan dengan drawer detail tersembunyi default dan toggle interaktif saat tombol detail ditekan. |
+| `GET /pengembalian` | `resources/views/pengembalian.blade.php` | `style.css`, `dashboard.css` | Monitoring komplain & retur pelanggan, kartu statistik retur, daftar transaksi, serta modal interaktif rincian pengembalian & persetujuan retur. |
 | `GET /pengaturan` | `resources/views/pengaturan.blade.php` | `style.css`, `dashboard.css` | Konfigurasi profil admin, keamanan password, serta pengaturan operasional toko. |
 
 ---
