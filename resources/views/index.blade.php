@@ -38,16 +38,7 @@
             }
         }
     </script>
-    <style>
-        /* Custom scrollbar hide for categories */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/public.css') }}">
 </head>
 <body class="bg-[#f9fafb] text-gray-800 font-sans antialiased min-h-screen flex flex-col">
 
