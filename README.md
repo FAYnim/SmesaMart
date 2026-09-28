@@ -1,58 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SmesaMart - Platform E-Commerce & Backoffice UMKM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+SmesaMart adalah platform web e-commerce dan backoffice terintegrasi yang dirancang untuk mendukung operasional ritel sekolah dan UMKM. Platform ini menyediakan etalase belanja online untuk pelanggan serta panel kontrol administratif untuk manajemen pesanan, inventaris stok, katalog produk, pengembalian, dan pengaturan toko.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 1. Arsitektur & Tech Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Backend Framework:** Laravel 12.x (PHP 8.5)
+- **Frontend Admin / Backoffice:** Bootstrap 5.3 + Bootstrap Icons + Chart.js
+- **Frontend Storefront / Landing:** Tailwind CSS (Utility Engine) + Plus Jakarta Sans Typography
+- **CSS Modular Architecture:**
+  - `public/css/style.css` - Global design tokens (`:root`), typography base, layout shell backoffice (sidebar, navbar, mobile drawer).
+  - `public/css/dashboard.css` - Modul styling terpusat untuk seluruh view admin (dashboard, produk, stok, pesanan, pengembalian, pengaturan).
+  - `public/css/public.css` - Modul styling storefront publik (utility scrollbar, auth modals, catalog interactions).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 2. Struktur Modul CSS (`public/css/`)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Untuk mempermudah pemeliharaan jangka panjang tanpa perlu mengedit tag `<style>` di setiap file Blade:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```
+public/css/
+├── style.css       # Token variabel warna, layout sidebar, header topbar, responsivitas drawer
+├── dashboard.css   # Styling komponen internal admin (kartu KPI, tabel, badge status, modal, panel detail)
+└── public.css      # Styling khusus storefront (halaman katalog belanja & modal autentikasi)
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Integrasi di View:
+- **Admin Views (`layouts/app.blade.php`):**
+  ```html
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+  ```
+- **Storefront View (`resources/views/index.blade.php`):**
+  ```html
+  <link rel="stylesheet" href="{{ asset('css/public.css') }}">
+  ```
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 3. Inventori Rute & Fitur
 
-## Code of Conduct
+| Rute | View Blade | Modul CSS | Deskripsi Fitur |
+|---|---|---|---|
+| `GET /` | `resources/views/index.blade.php` | `public.css` | Etalase belanja konsumen, filter kategori, pencarian produk, keranjang belanja, dan modal login/daftar. |
+| `GET /dashboard` | `resources/views/dashboard.blade.php` | `style.css`, `dashboard.css` | Rangkuman statistik penjualan, kartu metrik KPI, grafik Chart.js, dan pesanan terbaru. |
+| `GET /produk` | `resources/views/produk.blade.php` | `style.css`, `dashboard.css` | Katalog produk admin, pencarian produk, tabel data produk, dan modal tambah/edit produk. |
+| `GET /stok` | `resources/views/stok.blade.php` | `style.css`, `dashboard.css` | Monitoring kuantitas stok barang, status stok (Aman, Menipis, Habis), dan paginasi. |
+| `GET /pesanan` | `resources/views/pesanan.blade.php` | `style.css`, `dashboard.css` | Manajemen pesanan 2 kolom: daftar kartu pesanan di sisi kiri dan drawer detail pesanan di sisi kanan. |
+| `GET /pengembalian` | `resources/views/pengembalian.blade.php` | `style.css`, `dashboard.css` | Monitoring komplain & retur pelanggan, kartu statistik retur, serta daftar transaksi terkait. |
+| `GET /pengaturan` | `resources/views/pengaturan.blade.php` | `style.css`, `dashboard.css` | Konfigurasi profil admin, keamanan password, serta pengaturan operasional toko. |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 4. Instalasi & Menjalankan Proyek
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Prasyarat
+- PHP >= 8.2 (Direkomendasikan PHP 8.4 atau 8.5)
+- Composer
+- Node.js & npm
 
-## License
+### Langkah Menjalankan
+1. **Clone & Masuk ke Direktori Proyek:**
+   ```bash
+   git clone <repo-url>
+   cd smesamart
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. **Instal Dependensi:**
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. **Konfigurasi Environment:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Jalankan Server Lokal:**
+   ```bash
+   php artisan serve
+   ```
+   Akses melalui browser di `http://127.0.0.1:8000`.
+
+---
+
+## 5. Pengujian & Verifikasi
+
+Jalankan test suite untuk memastikan seluruh fungsionalitas berjalan normal:
+```bash
+php artisan test
+```
+Verifikasi rendering view via tinker:
+```bash
+php artisan tinker --execute "echo view('dashboard')->render() ? 'OK' : 'FAIL';"
+```
