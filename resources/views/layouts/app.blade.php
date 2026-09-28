@@ -92,9 +92,9 @@
                         <p class="user-profile-role">admin123</p>
                     </div>
                 </div>
-                <button type="button" class="btn-logout" title="Keluar">
+                <a href="{{ url('/') }}" class="btn-logout" title="Keluar">
                     <i class="bi bi-box-arrow-right"></i>
-                </button>
+                </a>
             </div>
         </aside>
 
