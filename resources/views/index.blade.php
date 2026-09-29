@@ -85,14 +85,14 @@
                 <!-- Right Action Icons & Buttons -->
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
                     <!-- Cart Icon with Badge -->
-                    <button id="cartBtn" class="relative p-2 text-gray-700 hover:text-brand-800 transition" aria-label="Keranjang Belanja">
+                    <a id="cartBtn" href="{{ url('/checkout') }}" class="relative p-2 text-gray-700 hover:text-brand-800 transition" aria-label="Keranjang Belanja">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <circle cx="9" cy="21" r="1"></circle>
                             <circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
                         <span id="cartBadge" class="absolute top-0.5 right-0.5 bg-brand-800 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">3</span>
-                    </button>
+                    </a>
 
                     <!-- User Profile Icon -->
                     <button class="p-2 text-gray-700 hover:text-brand-800 transition" aria-label="Profil Akun">
